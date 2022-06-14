@@ -5,7 +5,7 @@ html {
 
 body {
   display: block;
-  /* background-color: #cccccc; */
+  background-color: #cccccc;
 }
 
 .all {
@@ -22,87 +22,84 @@ body {
   justify-content: space-between;
 }
 
-.circle-parent-t {
-  display: flex;
-  align-items: center;
-  width: 210px;
-  height: 210px;
-  border-radius: 50%;
-  text-align: center;
-  /* transform-origin: center; */
-  /* transform: scale(0, 1); */
-  background: white;
-}
-.circle-parent-f {
-  display: flex;
-  align-items: center;
-  width: 210px;
-  height: 210px;
-  background: #333;
-  border-radius: 50%;
-  text-align: center;
-}
-
 .circle-t {
-  text-align: center;
   display: flex;
   align-items: center;
-  /* text-align: center; */
-  height: 210px;
+  justify-content: center;
   width: 210px;
-  /* z-index: -1; */
-  opacity: 0.99;
-  background: #3399ff;
-  /* top: 50%;
-  left: 50%; */
+  height: 210px;
   border-radius: 50%;
-  /* transform: translate(-50%, -50%); */
-  transform-origin: center center;
-  transform: scale(0, 0);
-  transition: transform 0.3s;
-  /* z-index: 99; */
-  /* -webkit-transition: all 0.4s ease-in-out; */
+  text-align: center;
+  background: white;
+  position: relative;
+  z-index: 2;
 }
 
-.tMark {
-  z-index: 5;
+.circle-t::after {
+  background: #1da1f2;
+  border-radius: 50%;
+  content: "";
+  text-align: center;
+  height: 210px;
+  width: 210px;
+  z-index: -1;
+  pointer-events: none;
+  transform: scale(0, 0);
+  transition: 0.3s;
 }
 
 .fa-twitter {
-  /* line-height: 210px; */
-  /* border: none 100px; */
-  /* border-radius: 50%; */
-  /* background: white; */
-  /* z-index: 1; */
   flex: 1;
-  color: #3399ff;
+  color: #1da1f2;
   font-size: 7em;
-  /* transition-property: color; */
-  /* transition-duration: 1s; */
+  position: absolute;
 }
 
-.circle-parent-t:hover .circle-t {
+.circle-t:hover::after {
   transform: scale(1, 1);
-  /* width: 100%;
-  height: 100%;
-  background: #3399ff; */
+  transition: transform 0.3s;
 }
-.circle-parent-t:hover .fa-twitter {
+.circle-t:hover .fa-twitter {
   color: white;
 }
 
 .circle-f {
   display: flex;
   align-items: center;
+  justify-content: center;
   width: 210px;
   height: 210px;
-  background: #333;
   border-radius: 50%;
   text-align: center;
+  background: white;
+  position: relative;
+  z-index: 2;
+}
+
+.circle-f::after {
+  background: #3b5998;
+  border-radius: 50%;
+  content: "";
+  text-align: center;
+  height: 210px;
+  width: 210px;
+  z-index: -1;
+  pointer-events: none;
+  transform: scale(0, 0);
+  transition: 0.3s;
 }
 
 .fa-facebook-f {
   flex: 1;
-  color: #003399;
+  position: absolute;
+  color: #3b5998;
   font-size: 7em;
+}
+
+.circle-f:hover::after {
+  transform: scale(1, 1);
+  transition: transform 0.3s;
+}
+.circle-f:hover .fa-facebook-f {
+  color: white;
 }
